@@ -7,8 +7,8 @@ It allows multiple clients to connect to a central server, send messages, and vi
 ## 🎥 Demo Video
 
 You can watch a full demo of the chatroom running here:  
-👉 [**Watch the Demo Video**](#) 
-https://drive.google.com/file/d/1Y6T3QjCTLXmBgZ8hRFSVpHWB_IYk8zhb/view?usp=sharing
+👉 [**Watch the Demo Video** https://drive.google.com/file/d/1Y6T3QjCTLXmBgZ8hRFSVpHWB_IYk8zhb/view?usp=sharing](#) 
+
 ---
 
 ## Overview
@@ -166,6 +166,5 @@ This project can be extended easily to include:
 
 **Name:** [Ahmed Gebreel]  
 **Assignment:** 04 – Simple Chatroom  
-**Course:** Distributed Systems / Computer Networks  
-
+**Course:** Distributed Systems 
 ---
