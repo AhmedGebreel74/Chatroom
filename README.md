@@ -3,7 +3,7 @@
 This project is a simple client-server chatroom built using Go RPC (Remote Procedure Calls).
 It allows multiple clients to connect to a central server, send messages, and view the shared chat history in real time.
 
-🎥 ## Demo Video
+### 🎥 Demo Video
 
 You can watch a full demo of the chatroom running here:
 👉 **[Watch the Demo Video](https://drive.google.com/file/d/1Y6T3QjCTLXmBgZ8hRFSVpHWB_IYk8zhb/view?usp=sharing)**
@@ -65,7 +65,9 @@ You can start multiple clients to simulate different users chatting at the same 
 Example Output
 Server:
 
-Chat server running on port 1234... Ali: Hello everyone! Sara: Hi Ali!
+Chat server running on port 1234...
+[12:00:01] Ali: Hello everyone!
+[12:00:10] Sara: Hi Ali!
 Client:
 
 Enter your name: Ali
@@ -153,7 +155,7 @@ If the server isn’t running, the client prints: The server might be down. Try 
 If the connection breaks during a session, the client also stops safely instead of crashing.
 
 6. Improvements (Optional)
-This project can be extended easily to include:
+This project can beE extended easily to include:
 
 Saving messages to a file or database.
 
