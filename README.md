@@ -3,6 +3,12 @@
 This project is a simple **client-server chatroom** built using **Go RPC (Remote Procedure Calls)**.  
 It allows multiple clients to connect to a central server, send messages, and view the shared chat history in real time.
 
+--- 
+## 🎥 Demo Video
+
+You can watch a full demo of the chatroom running here:  
+👉 [**Watch the Demo Video**](#) 
+https://drive.google.com/file/d/1Y6T3QjCTLXmBgZ8hRFSVpHWB_IYk8zhb/view?usp=sharing
 ---
 
 ## Overview
@@ -83,14 +89,6 @@ Bye!
 
 ---
 
-## 🎥 Demo Video
-
-You can watch a full demo of the chatroom running here:  
-👉 [**Watch the Demo Video**](#)  
-*(Replace `#` with your actual link — e.g., YouTube, Google Drive, or GitHub upload.)*
-
----
-
 ## 🧠 Documentation
 
 ### 1. System Design
@@ -166,7 +164,7 @@ This project can be extended easily to include:
 
 ## 👨‍💻 Author
 
-**Name:** [Your Name]  
+**Name:** [Ahmed Gebreel]  
 **Assignment:** 04 – Simple Chatroom  
 **Course:** Distributed Systems / Computer Networks  
 
