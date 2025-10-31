@@ -45,3 +45,127 @@ In one terminal:
 ```bash
 go run server.go
 By default, the server runs on port 1234. To use a different port:
+
+Bash
+
+CHAT_PORT=8080 go run server.go
+2️⃣ Start the Client
+In another terminal:
+
+Bash
+
+go run client.go
+If you’re using a custom port:
+
+Bash
+
+CHAT_ADDR=localhost:8080 go run client.go
+You can start multiple clients to simulate different users chatting at the same time.
+
+Example Output
+Server:
+
+Chat server running on port 1234... Ali: Hello everyone! Sara: Hi Ali!
+Client:
+
+Enter your name: Ali
+Welcome Ali! You've joined the chat.
+Enter message (or 'exit' to quit): Hello everyone!
+
+--- Chat History ---
+Ali: Hello everyone!
+--------------------
+Enter message (or 'exit' to quit): exit
+Bye!
+🧠 Documentation
+1. System Design
+This project follows a Client–Server Architecture using Go’s RPC package:
+
+The server runs continuously and listens for incoming RPC connections.
+
+Each client connects to the server and communicates by calling remote methods.
+
+When a client sends a message, the server stores it and sends back the entire chat history.
+
+2. Server Explanation (server.go)
+The server defines a struct ChatServer which holds:
+
+Go
+
+type ChatServer struct {
+    mu      sync.Mutex
+    history []ChatMessage
+}
+The SendMessage method:
+
+Validates the incoming message.
+
+Appends it to the shared history slice.
+
+Returns a copy of the full chat history to the client.
+
+Uses a mutex lock (mu.Lock()) to ensure thread-safe access when multiple clients send messages simultaneously.
+
+The GetHistory method simply returns all previous messages without modifying anything.
+
+The server listens for connections using:
+
+Go
+
+listener, _ := net.Listen("tcp", ":1234")
+rpc.ServeConn(conn)
+The server can be closed by typing exit in the terminal.
+
+3. Client Explanation (client.go)
+The client connects using:
+
+Go
+
+client, err := rpc.Dial("tcp", "localhost:1234")
+It asks for the user’s name and allows them to type messages in a loop. After each message, the client calls the server method:
+
+Go
+
+client.Call("ChatServer.SendMessage", msg, &history)
+The server sends back the full chat history, which the client prints in a clear format. The program continues until the user types exit.
+
+4. Data Structure
+The ChatMessage struct defines the message format:
+
+Go
+
+type ChatMessage struct {
+    Author    string
+    Text      string
+    Timestamp time.Time
+}
+Each message includes:
+
+Author – the sender’s name
+
+Text – the actual message
+
+Timestamp – the exact time when the message was sent
+
+5. Error Handling
+If the server isn’t running, the client prints: The server might be down. Try again later. ...and exits gracefully.
+
+If the connection breaks during a session, the client also stops safely instead of crashing.
+
+6. Improvements (Optional)
+This project can be extended easily to include:
+
+Saving messages to a file or database.
+
+Supporting multiple chatrooms.
+
+Adding usernames and authentication.
+
+Using WebSockets for real-time updates instead of RPC.
+
+👨‍💻 Author
+Name: [Ahmed Gebreel]
+
+Assignment: 04 – Simple Chatroom
+
+Course: Distributed Systems / Computer Networks
